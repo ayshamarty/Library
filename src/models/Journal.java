@@ -1,10 +1,20 @@
 package models;
 
-public class Journal extends Item {
+import interfaces.Updateable;
+
+public class Journal extends Item implements Updateable {
 
 	// attributes
 	private String subject;
 	private int volume;
+
+	// constructor
+	public Journal(String itemID, String title, String publisher, int numPages, String subject, int volume,
+			boolean inLibrary) {
+		super(itemID, title, publisher, numPages, inLibrary);
+		this.subject = subject;
+		this.volume = volume;
+	}
 
 	// behaviours
 
@@ -24,6 +34,12 @@ public class Journal extends Item {
 
 	public void setVolume(int volume) {
 		this.volume = volume;
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

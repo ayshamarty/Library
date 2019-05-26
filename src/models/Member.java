@@ -2,32 +2,40 @@ package models;
 
 import java.util.ArrayList;
 
-public class Members {
+public class Member {
 	// attributes
-	private int memberID;
+	private String memberID;
 	private String lastName;
 	private String firstName;
 	private int age;
 	private ArrayList<Item> memberInventory = new ArrayList<Item>();
 
+	// constructor
+	public Member(String memberID, String lastName, String firstName, int age) {
+		this.memberID = memberID;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.age = age;
+	}
+
 	// behaviours
-	public ArrayList<Item> checkOut(Item checkedItem) {
+	public ArrayList<Item> takeItem(Member chooseMem, Item checkedItem) {
 		getMemberInventory().add(checkedItem);
 		return memberInventory;
 	}
 
-	public ArrayList<Item> checkIn(Item checkedItem) {
+	public ArrayList<Item> returnItem(Member chooseMem, Item checkedItem) {
 		getMemberInventory().remove(checkedItem);
 		return memberInventory;
 
 	}
 
 	// getters and setters
-	public int getMemberID() {
+	public String getMemberID() {
 		return memberID;
 	}
 
-	public void setMemberID(int memberID) {
+	public void setMemberID(String memberID) {
 		this.memberID = memberID;
 	}
 
